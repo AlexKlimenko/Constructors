@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HW_1_JS</title>
+	</head>
+	<body>
+		
+		<script>
+			console.log("КОНСТРУКТОРЫ. Задачи");
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+			console.log("1");
+
+			function Car(name, year) {
+				this.getName = () => {return name[0].toUpperCase() + name.substr(1);
+				};
+				this.getYear = () => {
+					var date = new Date();
+					return date.getFullYear() - year;
+				};
+			}
+
+			var lexus = new Car('lexus', 2);
+			console.log(lexus.getName());
+			console.log(lexus.getYear());
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+			console.log("2");
+
+			function Crypt(string) {
+				let str = string,
+					decodeStr;
+
+				this.encryptor = () => {
+					let arr = str.split('');
+					arr.reverse();
+					decodeStr = arr.join('');
+				};
+
+				this.getString = () => str;
+
+				this.getDecodeSttring = () => {
+					this.encryptor();
+
+					return decodeStr;
+				}
+
+				this.deleteAllStrings = () => {str,	decodeStr = undefined};
+
+			}
+
+			var strToCrypt = new Crypt('Создать конструктор, который умеет элементарно шифровать');
+
+			console.log(strToCrypt.getString());
+			console.log(strToCrypt.getDecodeSttring());
+			console.log(strToCrypt.deleteAllStrings());
+
+
+			
+///////////////////////////////////////////////////////////////////////////////////////////			
+			console.log("3");
+
+			
+			function StringClass(string) {
+				this.string = string;
+
+				this.setString = () => this.string;
+
+				this.getString = (value) => {
+					this.string = value;
+				}
+
+				this.getStringLength = () => this.string.length;
+
+				this.toString = () => this.string;
+
+				this.valueOf = () => this.string.length;
+			}
+
+
+			let str = new StringClass('test');
+			console.log(str.setString());
+			console.log(+str);
+			console.log(str.toString());
+			console.log(str.getStringLength());
+		
+</script>
+</body>
